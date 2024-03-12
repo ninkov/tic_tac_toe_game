@@ -7,20 +7,152 @@
   margin: 0;
   padding: 0;
 }
+
 :root {
   --cell-size: 100px;
+  --strike-size: calc(var(--cell-size) * 2.5);
+}
+body {
+  background-color: #000;
+}
+.main {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .board {
-  width: 100vw;
-  height: 100vh;
+  width: calc(var(--cell-size) * 3);
+  height: calc(var(--cell-size) * 3);
   display: grid;
+  grid-template-columns: repeat(3, auto);
   justify-content: center;
   align-content: center;
-  grid-template-columns: repeat(3, auto);
+  justify-items: center;
+  align-items: center;
+  position: relative;
 }
 .cell {
   width: var(--cell-size);
   height: var(--cell-size);
-  background-color: rgb(1, 1, 21);
-  border: 1px solid white;
+  font-size: 2em;
+  color: #fff;
+  border: 1px solid rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cell:nth-child(1),
+.cell:nth-child(4),
+.cell:nth-child(7) {
+  border-left: none;
+}
+.cell:nth-child(1),
+.cell:nth-child(2),
+.cell:nth-child(3) {
+  border-top: none;
+}
+.cell:nth-child(3),
+.cell:nth-child(6),
+.cell:nth-child(9) {
+  border-right: none;
+}
+.cell:nth-child(7),
+.cell:nth-child(8),
+.cell:nth-child(9) {
+  border-bottom: none;
+}
+
+.strike {
+  position: absolute;
+  background-color: red;
+}
+.strike-row-1 {
+  width: var(--strike-size);
+  height: 4px;
+  top: 16%;
+}
+.strike-row-2 {
+  width: var(--strike-size);
+  height: 4px;
+  top: 49.5%;
+}
+.strike-row-3 {
+  width: var(--strike-size);
+  height: 4px;
+  top: 83%;
+}
+
+.strike-column-1 {
+  width: 4px;
+  height: var(--strike-size);
+  left: 16%;
+}
+.strike-column-2 {
+  width: 4px;
+  height: var(--strike-size);
+  left: 49.5%;
+}
+.strike-column-3 {
+  width: 4px;
+  height: var(--strike-size);
+  left: 83%;
+}
+.strike-diagonal-1 {
+  width: var(--strike-size);
+  height: 4px;
+  top: 50%;
+  left: 8%;
+  transform: skewY(45deg);
+}
+.strike-diagonal-2 {
+  width: var(--strike-size);
+  height: 4px;
+  top: 50%;
+  left: 8%;
+  transform: skewY(-45deg);
+}
+#winning-message {
+  text-align: center;
+  border: 2px solid #450303;
+  box-shadow: 2px 2px 2px 1px rgb(137 4 250 / 24%);
+  margin-top: 2em;
+  border-radius: 0.2em;
+}
+#winning-message [who-won-the-game-text] {
+  color: #6be316d7;
+  font-size: 4.5em;
+}
+#restart-btn {
+  font-size: 1em;
+  margin: 2em 0;
+  padding: 1em;
+  border-radius: 0.4em;
+  color: #fff;
+  background-color: #6be316d7;
+  border-color: #fff;
+}
+#restart-btn:hover {
+  background-color: #000;
+  color: #6be316d7;
+  border-color: #6be316d7;
+  border-radius: 0.4em;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+.visible {
+  display: block;
+}
+.x-hover:hover::after {
+  content: "X";
+  color: white;
+}
+.o-hover:hover::after {
+  content: "O";
+  color: white;
+  
 }

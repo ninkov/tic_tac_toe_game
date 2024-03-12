@@ -8,20 +8,23 @@
     <title>Tic Tac Toe</title>
   </head>
   <body>
-    <section class="board" id="board">
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-    </section>
-    <section class="winning-message" id="winning-message">
-      <article who-won-the-game-text></article>
-      <button id="restart-btn">Restart</button>
-    </section>
+    <div class="main">
+      <section class="board" id="board">
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="strike" id="strike"></div>
+      </section>
+      <section class="hidden" id="winning-message">
+        <article who-won-the-game-text>Winner is X</article>
+        <button id="restart-btn">Restart Game</button>
+      </section>
+    </div>
   </body>
 </html>
